@@ -1,0 +1,46 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="robot_soccer_00">
+  
+  <static>true</static>
+    
+    <link name='chassis'>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>./hexagons.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name='visual'>
+        <mesh>
+          <uri>./hexagons.dae</uri>
+        </mesh>
+      </visual>
+
+    </link>
+
+    <link name='left_wheel'>
+      <collision name='caster_collision'>
+        <pose> 
+          <sphere>
+          <radius>.05</radius></pose>
+        <geometry>
+          <sphere>
+          <radius>.05</radius>
+        </geometry>
+      </collision>
+      
+    </link>
+
+    <link name='right_wheel'>
+    </link>
+
+    <link name='back_wheel'>
+    </link>
+
+
+
+  </model>
+</sdf>
