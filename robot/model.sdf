@@ -2,45 +2,113 @@
 <sdf version='1.4'>
   <model name="robot_soccer_00">
   
-  <static>true</static>
+  <static>false</static>
     
     <link name='chassis'>
       <collision name='collision'>
         <geometry>
           <mesh>
-            <uri>./hexagons.dae</uri>
+            <uri>./hex.dae</uri>
           </mesh>
         </geometry>
       </collision>
 
       <visual name='visual'>
-        <mesh>
-          <uri>./hexagons.dae</uri>
-        </mesh>
+        <geometry>
+          <mesh>
+            <uri>./hex.dae</uri>
+          </mesh>
+        </geometry>
       </visual>
 
     </link>
 
-    <link name='left_wheel'>
-      <collision name='caster_collision'>
-        <pose> 
-          <sphere>
-          <radius>.05</radius></pose>
+    <link name='right_wheel'>
+      <pose>-.05 .07 0 1.1 1.5707 0</pose>
+      <collision name="right_wheel_collision">
         <geometry>
-          <sphere>
-          <radius>.05</radius>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.02</length>
+          </cylinder>
         </geometry>
       </collision>
-      
+      <visual name="right_wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.02</length>
+          </cylinder>
+        </geometry>
+      </visual>
     </link>
 
-    <link name='right_wheel'>
+    <link name='left_wheel'>
+      <pose>-.05 -.07 0 -1.1 1.5707 0</pose>
+      <collision name="left_wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.02</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="left_wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.02</length>
+          </cylinder>
+        </geometry>
+      </visual>
     </link>
 
     <link name='back_wheel'>
+      <pose>.1 0 0 0 1.5707 0</pose>
+      <collision name="back_wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.02</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="back_wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.02</length>
+          </cylinder>
+        </geometry>
+      </visual>
     </link>
 
+  <joint type="revolute" name="left_wheel_hinge">
+    <pose></pose>
+    <child>left_wheel</child>
+    <parent>chassis</parent>
+    <axis>
+      <xyz>1 1 0</xyz>
+    </axis>
+  </joint>
 
+  <joint type="revolute" name="right_wheel_hinge">
+    <pose></pose>
+    <child>right_wheel</child>
+    <parent>chassis</parent>
+    <axis>
+      <xyz>1 1 0</xyz>
+    </axis>
+  </joint>
+
+  <joint type="revolute" name="back_wheel_hinge">
+    <pose>.1 0 0 0 0 0</pose>
+    <child>back_wheel</child>
+    <parent>chassis</parent>
+    <axis>
+      <xyz>1 0 0</xyz>
+    </axis>
+  </joint>
 
   </model>
 </sdf>
