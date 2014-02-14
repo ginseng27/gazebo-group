@@ -5,6 +5,7 @@
   <static>false</static>
     
     <link name='chassis'>
+      <pose>0 0 0 0 0 0</pose>
       <collision name='collision'>
         <geometry>
           <mesh>
@@ -24,7 +25,7 @@
     </link>
 
     <link name='right_wheel'>
-      <pose>-.05 .07 0 1.1 1.5707 0</pose>
+      <pose>-.05 .07 -.038618 0 1.5707 -1.1</pose>
       <collision name="right_wheel_collision">
         <geometry>
           <cylinder>
@@ -44,7 +45,7 @@
     </link>
 
     <link name='left_wheel'>
-      <pose>-.05 -.07 0 -1.1 1.5707 0</pose>
+      <pose>-.05 -.07 -.038618 0 1.5707 1.1</pose>
       <collision name="left_wheel_collision">
         <geometry>
           <cylinder>
@@ -64,7 +65,7 @@
     </link>
 
     <link name='back_wheel'>
-      <pose>.1 0 0 0 1.5707 0</pose>
+      <pose>.1 0 -.038618 0 1.5707 0</pose>
       <collision name="back_wheel_collision">
         <geometry>
           <cylinder>
@@ -83,8 +84,8 @@
       </visual>
     </link>
 
-  <joint type="revolute" name="left_wheel_hinge">
-    <pose></pose>
+  <joint type="revolute2" name="left_wheel_hinge">
+    <pose>-.05 -.07 -.038618 -1.1 1.5707 0</pose>
     <child>left_wheel</child>
     <parent>chassis</parent>
     <axis>
@@ -92,8 +93,8 @@
     </axis>
   </joint>
 
-  <joint type="revolute" name="right_wheel_hinge">
-    <pose></pose>
+  <joint type="revolute2" name="right_wheel_hinge">
+    <pose>-.05 .07 -.038618 1.1 1.5707 0</pose>
     <child>right_wheel</child>
     <parent>chassis</parent>
     <axis>
@@ -101,12 +102,12 @@
     </axis>
   </joint>
 
-  <joint type="revolute" name="back_wheel_hinge">
-    <pose>.1 0 0 0 0 0</pose>
+  <joint type="revolute2" name="back_wheel_hinge">
+    <pose>.1 0 0 0 1.5707 0</pose>
     <child>back_wheel</child>
     <parent>chassis</parent>
     <axis>
-      <xyz>1 0 0</xyz>
+      <xyz>1 1 0</xyz>
     </axis>
   </joint>
 
