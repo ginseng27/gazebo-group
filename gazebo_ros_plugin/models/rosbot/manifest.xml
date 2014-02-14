@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<model>
+  <name>Rosbot</name>
+  <version>0.0.1</version>
+  <sdf>model.sdf</sdf>
+  <author>
+    <name>Me</name>
+    <email>Me@me.org</email>
+  </author>
+  <description>
+    A robot with a ROS model plugin.
+  </description>
+</model>

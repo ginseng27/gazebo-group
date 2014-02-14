@@ -1,0 +1,1 @@
+/home/goal-e/local/lib/gazebo_plugins/libros_model_plugin.so
